@@ -6,7 +6,7 @@ class Searcher:
 
 	def __init__(self, email):
 		self.email = email
-		self.domail = self.get_domail()
+		self.domail = self.get_domain()
 		self.mx = self.get_mx_exchange()
 
 	def cut(self,data,delimiter):
@@ -32,6 +32,6 @@ class Searcher:
 		code, message = server.rcpt(str(self.email))
 		server.quit()
 		if code == 250:
-			print('Verdadero')
+			print('Valid')
 		else:
-			print('Falso')
+			print('Not Found')
